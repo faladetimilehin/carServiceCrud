@@ -37,6 +37,21 @@ export default class Insert extends Component {
             [id]: value
         })
     }
+    onChangeAddress =(e) => {
+        this.setState({
+            address : e.target.value
+        })
+    }
+    onChangePhoneNumber =(e) => {
+        this.setState({
+            phoneNumber : e.target.value
+        })
+    }
+    onChangeCarName =(e) => {
+        this.setState({
+            carName : e.target.value
+        })
+    }
         onSubmit = (e) =>   {
             e.preventDefault();
             const obj = {
@@ -67,7 +82,7 @@ export default class Insert extends Component {
             })
             Toast.fire({
                 icon: 'success',
-                title: 'User Edited successfully'
+                title: 'User Created successfully'
               })
               this.props.history.push('/view', this.state)
         }
@@ -88,11 +103,11 @@ export default class Insert extends Component {
                         </div>
                         <div className="form-group col-md-6">
                             <label Htmlfor="number">Phone Number</label>
-                            <input type="number" className="form-control" id="number" required value={this.state.phoneNumber} onChange={this.handleChange}></input>
+                            <input type="number" className="form-control" id="number" required value={this.state.phoneNumber} onChange={this.onChangePhoneNumber}></input>
                         </div>
                         <div className="form-group col-md-6">
                             <label Htmlfor="carname">Car Name</label>
-                            <input type="carname" className="form-control" id="carname" required value={this.state.carName} onChange={this.handleChange}></input>
+                            <input type="carname" className="form-control" id="carname" required value={this.state.carName} onChange={this.onChangeCarName}></input>
                         </div>
                         <div className="form-group col-md-6">
                             <label Htmlfor="carPlateNumber">Car Plate Number</label>
@@ -104,7 +119,7 @@ export default class Insert extends Component {
                     
                     <div className="form-group col-md-6">
                         <label Htmlfor="inputAddress">Address</label>
-                        <input type="textarea" className="form-control" id="inputAddress" required value={this.state.address} onChange={this.handleChange} ></input>
+                        <input type="textarea" className="form-control" id="inputAddress" required value={this.state.address} onChange={this.onChangeAddress} ></input>
                     </div>
                     <div className="form-group col-md-6">
                         <label Htmlfor="datecar">Date </label>
